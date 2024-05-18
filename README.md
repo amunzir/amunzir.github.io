@@ -1,2 +1,2 @@
 # amunzir.github.io
-Website for Art 151
+Work in progress - personal site coming soon!
