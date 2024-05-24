@@ -81,6 +81,9 @@ let shownVal = 0;
 let operation = "add";
 let calcCount = 0;
 
+//for about me
+let aboutMeTitle = "About Me";
+let aboutMeBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tellus justo, dictum eget dui non, tincidunt viverra eros. Sed in sollicitudin metus, quis efficitur massa. Donec imperdiet, metus vel varius rhoncus, ante nunc vulputate enim, et euismod elit tellus id augue. Aliquam sed suscipit neque. Fusce condimentum tempus ante, vel efficitur purus suscipit non. Suspendisse placerat metus quis venenatis rutrum. Donec rutrum quam ligula, in dignissim mi dignissim a. In vehicula rutrum vehicula. In bibendum aliquam diam vel pulvinar. Curabitur ultrices nisi ac elit pellentesque semper. Morbi tortor nisi, ornare sit amet sapien non, feugiat dapibus nisi. Quisque vel tellus neque. Sed scelerisque lacinia mauris congue dictum. Sed suscipit risus eget est facilisis, quis tempus sem lobortis. Nam mauris massa, ullamcorper tempor posuere sed, fringilla non arcu. Donec condimentum sem nec congue aliquam.\nPellentesque facilisis turpis ipsum, in finibus purus tincidunt nec. Aenean eu nibh a ligula egestas lobortis id quis nisi. Nulla aliquet condimentum molestie. Aliquam interdum est convallis urna dignissim faucibus. Proin ultrices sit amet dolor a sollicitudin. Mauris felis nisi, mattis vulputate lacinia in, scelerisque ac sapien. Vivamus vel ex nunc. Nam ultrices dui quis lacus convallis pharetra. Aenean eu mi venenatis, porttitor nulla ut, vehicula arcu. Maecenas turpis orci, dictum at sapien quis, commodo aliquet lectus. Etiam a magna magna. Mauris egestas felis sem, ac iaculis leo congue at. Aliquam maximus ut nulla quis mollis. Vivamus et lectus eu augue egestas congue id et neque.";
 
 let canvas;
 
@@ -132,12 +135,12 @@ function setup() {
   paintSetup();
   musicSetup();
 
-  push();
-    rectMode(CENTER);
-    noStroke();
-    fill(200, 150);
-    rect(width/2, height, 250, 70, 10, 10);
-  pop();
+  // push();
+  //   rectMode(CENTER);
+  //   noStroke();
+  //   fill(200, 150);
+  //   rect(width/2, height, 250, 70, 10, 10);
+  // pop();
 
   let menuCenter = (width/2)-22;
   musicWindowButton = createImg("images/musicimg.png", "");
@@ -181,10 +184,10 @@ function setup() {
 
   aboutMeWindowButton = createImg("images/txtFileImg.png", "");
   aboutMeWindowButton.size(75,75);
-  aboutMeWindowButton.position(width-100, 50);
+  aboutMeWindowButton.position(width-100, 30);
   //
   aboutMeExitBtn = createImg("images/redDotImg.png", "");
-  aboutMeExitBtn.position(width/2, 300);
+  aboutMeExitBtn.position(width/2-100, 300);
   aboutMeExitBtn.size(10, 10);
   aboutMeExitBtn.mousePressed(hideAboutMe);
 
@@ -221,6 +224,15 @@ function defaultFunc() {
     noStroke();
     fill(200, 150);
     rect(width/2, height, 250, 70, 10, 10);
+  pop();
+
+  push();
+    textSize(15);
+    rectMode(CENTER);
+    // fill(200, 150);
+    // text(aboutMeTitle, width-56, 121, 75, 20);
+    fill(50);
+    text(aboutMeTitle, width-55, 120, 75, 20);
   pop();
 
   if(musicWindow) {showMusic();}
@@ -496,13 +508,15 @@ function hideCalculator() {
 
 function showAboutMe() {
   aboutMeWindow = true;
-  rect(width/2, 300, 150, 250);
+  rect(width/2-100, 300, 250, 250);
   //image(calcImg, 40, 300, 150, 250);
-  rect(width/2, 300, 150, 10);
+  rect(width/2-100, 300, 250, 10);
   push();
     fill(0);
-    textSize(40);
-    text("About Me", 45, 360);
+    textSize(30);
+    text(aboutMeTitle, width/2-100 + 10, 345);
+    textSize(10);
+    text(aboutMeBody, width/2-100 + 10, 360, 230, 170);
   pop();
   // if(mouseIsPressed && mouseX > 30 && mouseX < 170 && mouseY > 330 && mouseY < 380) {
   //   window.location.href = 'office.html';
