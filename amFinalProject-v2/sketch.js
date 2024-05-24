@@ -181,10 +181,10 @@ function setup() {
 
   aboutMeWindowButton = createImg("images/txtFileImg.png", "");
   aboutMeWindowButton.size(75,75);
-  aboutMeWindowButton.position(width-100, height-100);
+  aboutMeWindowButton.position(width-100, 50);
   //
   aboutMeExitBtn = createImg("images/redDotImg.png", "");
-  aboutMeExitBtn.position(40, 300);
+  aboutMeExitBtn.position(width/2, 300);
   aboutMeExitBtn.size(10, 10);
   aboutMeExitBtn.mousePressed(hideAboutMe);
 
@@ -496,11 +496,11 @@ function hideCalculator() {
 
 function showAboutMe() {
   aboutMeWindow = true;
-  rect(40, 300, 150, 250);
+  rect(width/2, 300, 150, 250);
   //image(calcImg, 40, 300, 150, 250);
-  rect(40, 300, 150, 10);
+  rect(width/2, 300, 150, 10);
   push();
-    fill(255);
+    fill(0);
     textSize(40);
     text("About Me", 45, 360);
   pop();
