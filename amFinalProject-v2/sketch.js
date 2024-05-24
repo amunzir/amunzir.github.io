@@ -180,13 +180,13 @@ function setup() {
   calcExitBtn.mousePressed(hideCalculator);
 
   aboutMeWindowButton = createImg("images/txtFileImg.png", "");
-  aboutMeWindowButton.size(50,50);
-  aboutMeWindowButton.position(200, height-200);
+  aboutMeWindowButton.size(75,75);
+  aboutMeWindowButton.position(width-100, height-100);
   //
   aboutMeExitBtn = createImg("images/redDotImg.png", "");
   aboutMeExitBtn.position(40, 300);
   aboutMeExitBtn.size(10, 10);
-  aboutMeExitBtn.mousePressed(hideMusic);
+  aboutMeExitBtn.mousePressed(hideAboutMe);
 
   musicWindowButton.mousePressed(showMusic);
   browserWindowButton.mousePressed(showBrowser);
@@ -497,16 +497,16 @@ function hideCalculator() {
 function showAboutMe() {
   aboutMeWindow = true;
   rect(40, 300, 150, 250);
-  image(calcImg, 40, 300, 150, 250);
+  //image(calcImg, 40, 300, 150, 250);
   rect(40, 300, 150, 10);
   push();
     fill(255);
     textSize(40);
-    text(shownVal, 35, 380);
+    text("About Me", 45, 360);
   pop();
-  if(mouseIsPressed && mouseX > 30 && mouseX < 170 && mouseY > 330 && mouseY < 380) {
-    window.location.href = 'office.html';
-  }
+  // if(mouseIsPressed && mouseX > 30 && mouseX < 170 && mouseY > 330 && mouseY < 380) {
+  //   window.location.href = 'office.html';
+  // }
   // calcFunc();
   aboutMeExitBtn.show();
 }
