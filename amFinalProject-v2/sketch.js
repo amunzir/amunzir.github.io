@@ -23,7 +23,7 @@ let astronautAudio;
 let getCoolAudio;
 let insomniaAudio;
 let sunshineAudio;
-//Covers
+//album covers
 let plutoCover;
 let sweetChaosCover;
 let instagramCover;
@@ -39,18 +39,21 @@ let musicWindow = false;
 let browserWindow = false;
 let paintWindow = false;
 let calculatorWindow = false;
+let aboutMeWindow = false;
 
 //window buttons
 let musicWindowButton;
 let browserWindowButton;
 let paintWindowButton;
 let calculatorWindowButton;
+let aboutMeWindowButton;
 
 //exit buttons
 let musicExitBtn;
 let browserExitBtn;
 let paintExitBtn;
 let calcExitBtn;
+let aboutMeExitBtn;
 
 //for paint
 let lineDotsX = [];
@@ -176,10 +179,20 @@ function setup() {
   calcExitBtn.size(10, 10);
   calcExitBtn.mousePressed(hideCalculator);
 
+  aboutMeWindowButton = createImg("images/txtFileImg.png", "");
+  aboutMeWindowButton.size(50,50);
+  aboutMeWindowButton.position(200, height-200);
+  //
+  aboutMeExitBtn = createImg("images/redDotImg.png", "");
+  aboutMeExitBtn.position(40, 300);
+  aboutMeExitBtn.size(10, 10);
+  aboutMeExitBtn.mousePressed(hideMusic);
+
   musicWindowButton.mousePressed(showMusic);
   browserWindowButton.mousePressed(showBrowser);
   paintWindowButton.mousePressed(showPaint);
   calculatorWindowButton.mousePressed(showCalculator);
+  aboutMeWindowButton.mousePressed(showAboutMe);
 
 }
 
@@ -218,6 +231,8 @@ function defaultFunc() {
   else {hideBrowser();}
   if(calculatorWindow) {showCalculator();}
   else {hideCalculator();}
+  if(aboutMeWindow) {showAboutMe();}
+  else {hideAboutMe();}
 
   // slider = createSlider(0, 100, currVolume);
   // slider.position(width-120, height-20);
@@ -477,4 +492,25 @@ function calcFunc() {
 function hideCalculator() {
   calculatorWindow = false;
   calcExitBtn.hide();
+}
+
+function showAboutMe() {
+  aboutMeWindow = true;
+  rect(40, 300, 150, 250);
+  image(calcImg, 40, 300, 150, 250);
+  rect(40, 300, 150, 10);
+  push();
+    fill(255);
+    textSize(40);
+    text(shownVal, 35, 380);
+  pop();
+  if(mouseIsPressed && mouseX > 30 && mouseX < 170 && mouseY > 330 && mouseY < 380) {
+    window.location.href = 'office.html';
+  }
+  // calcFunc();
+  aboutMeExitBtn.show();
+}
+function hideAboutMe() {
+  aboutMeWindow = false;
+  aboutMeExitBtn.hide();
 }
