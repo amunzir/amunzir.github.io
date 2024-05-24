@@ -56,6 +56,8 @@ let calcExitBtn;
 let lineDotsX = [];
 let lineDotsY = [];
 let lineDotsColor = [];
+let dotIsFirst = [];
+let dotIsFirstState = false;
 let currColor;
 let colorsArray = [];
 
@@ -348,7 +350,7 @@ function showPaint() {
     for(var i = 0; i < lineDotsX.length; i++) {
       fill(lineDotsColor[i]);
       ellipse(lineDotsX[i], lineDotsY[i], 5, 5);
-      if(lineDotsColor[i] == lineDotsColor[i+1]) {
+      if(lineDotsColor[i] == lineDotsColor[i+1] && dotIsFirst[i+1] != true) {
         push();
           stroke(lineDotsColor[i]);
           strokeWeight(5);
@@ -362,6 +364,11 @@ function showPaint() {
       lineDotsX.push(mouseX);
       lineDotsY.push(mouseY);
       lineDotsColor.push(currColor);
+      dotIsFirst.push(dotIsFirstState);
+      dotIsFirstState = false;
+    }
+    if(mouseIsPressed && mouseX > width/4 && mouseX < width/4 + 400 && mouseY > 60 && mouseY < 430) {
+      dotIsFirstState = true;
     }
   pop();
   paintBar();
