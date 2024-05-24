@@ -367,7 +367,7 @@ function showPaint() {
       dotIsFirst.push(dotIsFirstState);
       dotIsFirstState = false;
     }
-    if(mouseIsPressed && mouseX > width/4 && mouseX < width/4 + 400 && mouseY > 60 && mouseY < 430) {
+    if(!mouseIsPressed && mouseX > width/4 && mouseX < width/4 + 400 && mouseY > 60 && mouseY < 430) {
       dotIsFirstState = true;
     }
   pop();
