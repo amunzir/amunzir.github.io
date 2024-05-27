@@ -235,6 +235,26 @@ function defaultFunc() {
     text(aboutMeTitle, width-55, 120, 75, 20);
   pop();
 
+  // if(musicWindow) {showMusic();}
+  // else {hideMusic();}
+  // if(paintWindow) {showPaint();}
+  // else {hidePaint();}
+  // if(browserWindow) {showBrowser();}
+  // else {hideBrowser();}
+  // if(calculatorWindow) {showCalculator();}
+  // else {hideCalculator();}
+  // if(aboutMeWindow) {showAboutMe();}
+  // else {hideAboutMe();}
+
+  drawWindows();
+
+  // slider = createSlider(0, 100, currVolume);
+  // slider.position(width-120, height-20);
+  // slider.style('width', '100px');
+  // currVolume = slider.value();
+}
+
+function drawWindows() {
   if(musicWindow) {showMusic();}
   else {hideMusic();}
   if(paintWindow) {showPaint();}
@@ -245,11 +265,6 @@ function defaultFunc() {
   else {hideCalculator();}
   if(aboutMeWindow) {showAboutMe();}
   else {hideAboutMe();}
-
-  // slider = createSlider(0, 100, currVolume);
-  // slider.position(width-120, height-20);
-  // slider.style('width', '100px');
-  // currVolume = slider.value();
 }
 
 function showMusic() {
