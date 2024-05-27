@@ -40,6 +40,7 @@ let browserWindow = false;
 let paintWindow = false;
 let calculatorWindow = false;
 let aboutMeWindow = false;
+let photosWindow = false;
 
 //window buttons
 let musicWindowButton;
@@ -47,6 +48,7 @@ let browserWindowButton;
 let paintWindowButton;
 let calculatorWindowButton;
 let aboutMeWindowButton;
+let photosWindowButton;
 
 //exit buttons
 let musicExitBtn;
@@ -54,6 +56,7 @@ let browserExitBtn;
 let paintExitBtn;
 let calcExitBtn;
 let aboutMeExitBtn;
+let photosExitBtn;
 
 //for paint
 let lineDotsX = [];
@@ -84,6 +87,9 @@ let calcCount = 0;
 //for about me
 let aboutMeTitle = "About Me";
 let aboutMeBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tellus justo, dictum eget dui non, tincidunt viverra eros. Sed in sollicitudin metus, quis efficitur massa. Donec imperdiet, metus vel varius rhoncus, ante nunc vulputate enim, et euismod elit tellus id augue. Aliquam sed suscipit neque. Fusce condimentum tempus ante, vel efficitur purus suscipit non. Suspendisse placerat metus quis venenatis rutrum. Donec rutrum quam ligula, in dignissim mi dignissim a. In vehicula rutrum vehicula. In bibendum aliquam diam vel pulvinar. Curabitur ultrices nisi ac elit pellentesque semper. Morbi tortor nisi, ornare sit amet sapien non, feugiat dapibus nisi. Quisque vel tellus neque. Sed scelerisque lacinia mauris congue dictum. Sed suscipit risus eget est facilisis, quis tempus sem lobortis. Nam mauris massa, ullamcorper tempor posuere sed, fringilla non arcu. Donec condimentum sem nec congue aliquam.\nPellentesque facilisis turpis ipsum, in finibus purus tincidunt nec. Aenean eu nibh a ligula egestas lobortis id quis nisi. Nulla aliquet condimentum molestie. Aliquam interdum est convallis urna dignissim faucibus. Proin ultrices sit amet dolor a sollicitudin. Mauris felis nisi, mattis vulputate lacinia in, scelerisque ac sapien. Vivamus vel ex nunc. Nam ultrices dui quis lacus convallis pharetra. Aenean eu mi venenatis, porttitor nulla ut, vehicula arcu. Maecenas turpis orci, dictum at sapien quis, commodo aliquet lectus. Etiam a magna magna. Mauris egestas felis sem, ac iaculis leo congue at. Aliquam maximus ut nulla quis mollis. Vivamus et lectus eu augue egestas congue id et neque.";
+
+//for photos
+let photosTitle = "Images";
 
 let canvas;
 
@@ -191,11 +197,21 @@ function setup() {
   aboutMeExitBtn.size(10, 10);
   aboutMeExitBtn.mousePressed(hideAboutMe);
 
+  photosWindowButton = createImg("images/folderImg.png", "");
+  photosWindowButton.size(70,70);
+  photosWindowButton.position(width-95, 150);
+  //
+  photosExitBtn = createImg("images/redDotImg.png", "");
+  photosExitBtn.position(width/2, 35);
+  photosExitBtn.size(10, 10);
+  photosExitBtn.mousePressed(hidePhotos);
+
   musicWindowButton.mousePressed(showMusic);
   browserWindowButton.mousePressed(showBrowser);
   paintWindowButton.mousePressed(showPaint);
   calculatorWindowButton.mousePressed(showCalculator);
   aboutMeWindowButton.mousePressed(showAboutMe);
+  photosWindowButton.mousePressed(showPhotos);
 
 }
 
@@ -235,6 +251,13 @@ function defaultFunc() {
     text(aboutMeTitle, width-55, 120, 75, 20);
   pop();
 
+  push();
+    textSize(15);
+    rectMode(CENTER);
+    fill(50);
+    text(photosTitle, width-47, 235, 75, 20);
+  pop();
+
   // if(musicWindow) {showMusic();}
   // else {hideMusic();}
   // if(paintWindow) {showPaint();}
@@ -265,6 +288,8 @@ function drawWindows() {
   else {hideCalculator();}
   if(aboutMeWindow) {showAboutMe();}
   else {hideAboutMe();}
+  if(photosWindow) {showPhotos();}
+  else {hidePhotos();}
 }
 
 function showMusic() {
@@ -542,4 +567,22 @@ function showAboutMe() {
 function hideAboutMe() {
   aboutMeWindow = false;
   aboutMeExitBtn.hide();
+}
+
+function showPhotos() {
+  photosWindow = true;
+  rect(width/2, 35, 250, 250);
+  rect(width/2, 35, 250, 10);
+  push();
+    fill(0);
+    textSize(30);
+    text(photosTitle, width/2 + 10, 80);
+    textSize(10);
+    text(aboutMeBody, width/2 + 10, 95, 230, 170);
+  pop();
+  photosExitBtn.show();
+}
+function hidePhotos() {
+  photosWindow = false;
+  photosExitBtn.hide();
 }
